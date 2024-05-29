@@ -1,0 +1,187 @@
+@import 'nullify';
+@import 'variables';
+@import 'mixins';
+
+.main {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 24px $prime-step;
+
+    h3 {
+        font-size: $day-font-size;
+        font-weight: 500;
+    }
+
+    .date_container {
+        margin-bottom: $prime-step;
+    }
+
+    .search {
+        position: relative;
+
+        input {
+            padding: $prime-step;
+            width: 100%;
+            border-radius: 28px;
+            border: none;
+            outline: none;
+            background-color: $input-and-task-background-color;
+            margin-bottom: $prime-step;
+
+            &::placeholder, #description::placeholder, #task_datetime::placeholder {
+                font-size: $prime-step;
+            }
+
+            &:focus {
+                border: 1px solid #6750A4;
+                border-bottom-right-radius: 0px;
+                border-bottom-left-radius: 0px;
+            }
+        }
+
+        .list {
+            position: relative;
+        }
+
+        ul {
+            padding: 10px 0 20px 20px;
+            list-style-type: none;
+            position: relative;
+            top: -20px;
+            background-color:$input-and-task-background-color;
+            width: 100%;
+            border-left: 1px solid #6750A4;
+            border-right: 1px solid #6750A4;
+            border-bottom: 1px solid #6750A4;
+            border-bottom-right-radius: $search-border-radius;
+            border-bottom-left-radius: $search-border-radius;
+        }    
+    }
+
+    #search_icon {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+
+    #new_task_header, .new_task_form, #tasks_header, .tasks_tab {
+        margin-bottom: $prime-step;
+    }
+
+    .new_task_form {
+        @include dispayFlex(flex-start, column, $prime-step);
+        background-color: $input-and-task-background-color;
+        padding: $prime-step;
+        border-radius: $prime-step;
+        border: none;
+    }
+
+    #new_task_description, #new_task_datetime {
+        background-color: $input-and-task-background-color;
+        outline: none;
+        border-radius: 4px;
+        border: 1px solid #49454F;
+        padding: $prime-step;
+    }
+
+    .new_task_form_buttons {
+        align-self: flex-end;
+    }
+    
+    #add_button, #clear {
+        padding: 10px 24px;
+        border-radius: 100px;
+        outline: none;
+        border: none;
+        font-size: $prime-font-size;
+    }
+
+    #add_button {
+        background-color: $accent-color;
+        color: $input-and-task-background-color;
+    }
+    
+    #clear {
+        background-color: $input-and-task-background-color;
+        border: 1px solid $accent-color;
+        color: $accent-color;
+    }
+
+    .tasks_tab {
+        @include dispayFlex(space-around, row, 0);
+        border: 1px solid #49454F;
+        border-radius: 100px;
+        padding: 0;
+        
+
+        .all, .active {
+            border-right: 1px solid #49454F;
+        }
+    
+        .all, .active, .completed {
+            width: 100%;
+            text-align: center;
+            padding: 10px 0 6px 0;
+            @include dispayFlex(center, row, 0);
+            font-size: $prime-font-size;
+        }
+    
+        .tab_active {
+            background-color: $active-tab-color;
+
+            &::before {
+                content: url('../statics/check.svg');
+            }
+        }
+        
+        .all.tab_active {
+            border-top-left-radius: $tab-border-radius;
+            border-bottom-left-radius: $tab-border-radius;
+        }
+        
+        .completed.tab_active {
+            border-top-right-radius: $tab-border-radius;
+            border-bottom-right-radius: $tab-border-radius;
+        }
+
+        .all.tab_active {
+            border-top-left-radius: $tab-border-radius;
+            border-bottom-left-radius: $tab-border-radius;
+        }
+        
+        .completed.tab_active {
+            border-top-right-radius: $tab-border-radius;
+            border-bottom-right-radius: $tab-border-radius;
+        }
+
+    }
+
+
+    .task {
+        background-color: $input-and-task-background-color;
+        @include displayGrid(center, 14px);
+        padding: 8px 14px;
+        border-radius: $prime-step;
+
+        #task_datetime {
+            font-size: $prime-font-size;
+            margin-bottom: 6px;
+            color: $accent-color;
+        }
+    }
+
+    [type="checkbox"] {
+        height: $checkbox-normal-size;
+        width: $checkbox-normal-size;
+
+        &:checked {
+            accent-color: $checked-accent-color;
+        }
+    }
+
+    svg:hover {
+        cursor: pointer;
+        height: $icon-hover-size;
+        width: $icon-hover-size;
+    }
+}

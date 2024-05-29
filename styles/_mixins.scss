@@ -1,0 +1,23 @@
+@mixin dispayFlex($justify-content, $direction, $gap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify-content;
+    gap: $gap;
+};
+
+@mixin displayGrid($align, $grid-gap) {
+    display: grid;
+    grid-template-columns: .5fr 5fr 1fr;
+    align-items: $align;
+    gap: $grid-gap;
+}
+
+// @mixin borderParams($border-type, $color) {
+//     $border-type: 1px solid $color;
+// };
+
+@mixin hoverEffect($size) {
+    cursor: pointer;
+    height: $size;
+    width: $size;
+}
